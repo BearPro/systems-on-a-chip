@@ -23,5 +23,8 @@
     <ClInclude Include="Counter74190.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="RunBase.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
