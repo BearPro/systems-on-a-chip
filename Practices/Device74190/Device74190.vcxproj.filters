@@ -26,5 +26,8 @@
     <ClInclude Include="RunBase.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="counter_traces.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

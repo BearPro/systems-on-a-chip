@@ -16,12 +16,13 @@ protected:
     sc_signal<sc_uint<4>> out;
     sc_signal<bool> rc;
 
-    Counter74190 counter = Counter74190("74190");
+    Counter74190 counter;
     
     sc_trace_file* trace_file;
     const char* file_name;
 
-    RunBase(const char* file_name)
+public:
+    RunBase(const char* file_name) : counter("74190")
     {
         this->file_name = file_name;
         cout << "Starting simulation '" << file_name << "'." << endl;
@@ -45,7 +46,7 @@ protected:
         counter.rc(rc);
 
         // Open trace file
-        trace_file = sc_create_vcd_trace_file(file_name);
+        trace_file = sc_create_vcd_trace_file((std::string("../../Traces/74190_") + file_name).c_str());
         trace_file->set_time_unit(0.1, SC_NS);
 
         // Set tracing signals
@@ -62,6 +63,13 @@ protected:
         // Pass 2ns
         sc_start(2, SC_NS);
     }
+
+    void Start()
+    {
+        sc_start(1, SC_NS);
+    }
+
+    virtual void Run() = 0;
 
     ~RunBase()
     {

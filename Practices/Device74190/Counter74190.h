@@ -52,7 +52,7 @@ public:
         if (load)
         {
             count = P;
-            return;
+            Q.write(count);
         }
 
         // Логика счёта
